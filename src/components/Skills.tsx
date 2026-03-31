@@ -6,9 +6,27 @@ const skillCategories = [
   {
     title: "Languages",
     skills: [
-      { name: "Java", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "TypeScript", level: 75 },
+      { name: "Python", level: 90 },
+      { name: "JavaScript", level: 80 },
+    ],
+  },
+  {
+    title: "AI/ML",
+    skills: [
+      { name: "NumPy", level: 80 },
+      { name: "Pandas", level: 80 },
+      { name: "Scikit-learn", level: 70 },
+      { name: "Prompt Engineering", level: 75 },
+      { name: "LLMs (Ollama)", level: 70 },
+    ],
+  },
+  {
+    title: "Backend",
+    skills: [
+      { name: "Node.js", level: 80 },
+      { name: "Express.js", level: 80 },
+      { name: "FastAPI", level: 75 },
+      { name: "REST APIs", level: 85 },
     ],
   },
   {
@@ -16,26 +34,22 @@ const skillCategories = [
     skills: [
       { name: "React.js", level: 85 },
       { name: "Next.js", level: 70 },
-      { name: "Tailwind CSS", level: 90 },
-      { name: "HTML/CSS", level: 95 },
+      { name: "HTML/CSS", level: 90 },
     ],
   },
   {
-    title: "Backend",
-    skills: [
-      { name: "Spring Boot", level: 75 },
-      { name: "Node.js", level: 80 },
-      { name: "Express.js", level: 80 },
-      { name: "REST APIs", level: 85 },
-    ],
-  },
-  {
-    title: "Database & Tools",
+    title: "Databases",
     skills: [
       { name: "MySQL", level: 80 },
       { name: "MongoDB", level: 75 },
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    skills: [
       { name: "Git/GitHub", level: 85 },
       { name: "VS Code", level: 90 },
+      { name: "Jupyter Notebook", level: 80 },
     ],
   },
 ];
@@ -57,7 +71,7 @@ const Skills = () => {
           <h2 className="text-3xl md:text-4xl font-bold mt-2">Technical Skills</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}

@@ -10,7 +10,7 @@ const About = () => {
   const stats = [
     { value: "9.08", label: "CGPA" },
     { value: "2+", label: "Internships" },
-    { value: "5+", label: "Projects" },
+    { value: "6+", label: "Projects" },
   ];
 
   return (
@@ -27,30 +27,28 @@ const About = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* About text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="text-muted-foreground leading-relaxed mb-6">
-              I am a passionate Software Developer pursuing a B.Tech in Computer Science 
-              Engineering at Walchand Institute of Technology, Solapur. With a strong 
-              foundation in Java, data structures, and object-oriented programming, I've 
-              focused my career path on backend development.
+              Final-year Computer Science student with a strong focus on Python and 
+              backend development, currently building experience in AI/ML. Skilled in 
+              developing scalable applications, working with APIs, and creating 
+              automation tools.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               My experience spans full-stack web development using technologies like 
-              React.js, Spring Boot, and Node.js. I'm particularly drawn to building 
-              scalable, production-ready systems with clean architecture and robust APIs.
+              React.js, Next.js, FastAPI, and Node.js. I'm particularly interested in 
+              applying AI to build practical, efficient solutions and improve real-world systems.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Currently seeking Java/Spring Boot internship or fresher backend roles 
+              Currently seeking Python/AI-ML internship or fresher backend roles 
               where I can contribute to real-world projects and continue growing as a developer.
             </p>
           </motion.div>
 
-          {/* Info cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -100,10 +98,7 @@ const About = () => {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Certification</h3>
                   <p className="text-muted-foreground text-sm">
-                    Infosys Springboard – Java Foundation
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    Core Java, OOP, Collections, Exception Handling
+                    Infosys Springboard – Introduction to Artificial Intelligence
                   </p>
                 </div>
               </div>
@@ -111,7 +106,6 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

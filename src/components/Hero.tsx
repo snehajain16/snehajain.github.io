@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Download, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ArrowDown, Code } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 
 const Hero = () => {
@@ -44,7 +44,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-xl md:text-2xl text-muted-foreground mb-6"
             >
-              Backend Developer & Full-Stack Enthusiast
+              Python Developer & AI/ML Enthusiast
             </motion.h2>
             
             <motion.p
@@ -53,8 +53,9 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
-              Final-year B.Tech CSE student with strong skills in Java, Spring Boot, and 
-              backend development. Passionate about building scalable, production-ready systems.
+              Final-year CSE student with a strong focus on Python and backend development, 
+              currently building experience in AI/ML. Passionate about applying AI to build 
+              practical, efficient solutions.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -109,6 +110,14 @@ const Hero = () => {
                 className="p-3 glass-card rounded-lg text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail size={22} />
+              </a>
+              <a
+                href="https://leetcode.com/u/snehajain16/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 glass-card rounded-lg text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Code size={22} />
               </a>
             </motion.div>
           </motion.div>

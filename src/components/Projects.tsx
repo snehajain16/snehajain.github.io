@@ -7,34 +7,42 @@ const projects = [
   {
     title: "ExpenseFlow",
     description:
-      "Full-stack expense tracker with receipt upload and transaction simplification to reduce redundant payments.",
-    tech: ["React.js", "Node.js", "MongoDB", "JWT"],
+      "Full-stack expense tracker with receipt upload and transaction simplification to reduce redundant payments. Built with JWT auth and secure file handling.",
+    tech: ["React.js", "Node.js", "MongoDB"],
     github: "https://github.com/snehajain16",
     color: "from-primary to-emerald-600",
   },
   {
-    title: "Placement Management System",
+    title: "Six Thinking Hats AI",
     description:
-      "Role-based placement backend using Spring Boot, enabling admins to manage companies and job postings, and students to apply for roles.",
-    tech: ["Java", "Spring Boot", "MySQL", "REST APIs"],
+      "Multi-agent reasoning system based on the Six Thinking Hats framework. Designed a pipeline using local LLMs (Ollama) to generate and aggregate responses into unified decision output via FastAPI.",
+    tech: ["Python", "FastAPI", "Ollama"],
     github: "https://github.com/snehajain16",
     color: "from-accent to-orange-500",
   },
   {
-    title: "Encryption Decryption Tool",
+    title: "Lockr – Terminal Secrets Vault",
     description:
-      "Java-based encryption tool using custom cryptographic logic and key-based transformations for secure data handling.",
-    tech: ["Java", "Swing GUI", "Cryptography"],
+      "Terminal-based secrets management tool to securely store API keys, tokens, and credentials. Implements encrypted storage with optional Git-based backup using GPG.",
+    tech: ["Python", "Git", "GPG/OpenSSL", "TUI"],
     github: "https://github.com/snehajain16",
     color: "from-violet-500 to-purple-600",
   },
   {
-    title: "Chess Engine",
+    title: "gh-readme-ai",
     description:
-      "Two-player chess engine with Swing GUI, implementing move validation, check/checkmate detection, and turn-based logic.",
-    tech: ["Java", "Swing", "Game Logic"],
+      "CLI tool and GitHub Action to automatically generate README files based on project structure and codebase content. Improved developer onboarding through automation.",
+    tech: ["Python", "GitHub API", "Jinja2"],
     github: "https://github.com/snehajain16",
     color: "from-blue-500 to-cyan-500",
+  },
+  {
+    title: "PyAudit – Python Linter & Auditor",
+    description:
+      "Unified CLI tool combining code linting and static security analysis to improve Python code quality. Enabled automation through GitHub workflows for continuous auditing.",
+    tech: ["Python", "Flake8", "Bandit", "GitHub API"],
+    github: "https://github.com/snehajain16",
+    color: "from-rose-500 to-pink-600",
   },
 ];
 
@@ -65,7 +73,6 @@ const Projects = () => {
               className="group"
             >
               <div className="glass-card rounded-xl overflow-hidden h-full hover:border-primary/50 transition-all duration-300">
-                {/* Gradient header */}
                 <div className={`h-2 bg-gradient-to-r ${project.color}`} />
                 
                 <div className="p-6">
@@ -81,14 +88,6 @@ const Projects = () => {
                         className="text-muted-foreground hover:text-foreground transition-colors"
                       >
                         <Github size={20} />
-                      </a>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <ExternalLink size={20} />
                       </a>
                     </div>
                   </div>
