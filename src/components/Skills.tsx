@@ -1,116 +1,65 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const skillCategories = [
+const stack = [
   {
-    title: "Languages",
-    skills: [
-      { name: "Python", level: 90 },
-      { name: "JavaScript", level: 80 },
-    ],
+    category: "Languages",
+    items: ["Python", "TypeScript", "JavaScript"],
   },
   {
-    title: "AI/ML",
-    skills: [
-      { name: "NumPy", level: 80 },
-      { name: "Pandas", level: 80 },
-      { name: "Scikit-learn", level: 70 },
-      { name: "Prompt Engineering", level: 75 },
-      { name: "LLMs (Ollama)", level: 70 },
-    ],
+    category: "Frontend",
+    items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"],
   },
   {
-    title: "Backend",
-    skills: [
-      { name: "Node.js", level: 80 },
-      { name: "Express.js", level: 80 },
-      { name: "FastAPI", level: 75 },
-      { name: "REST APIs", level: 85 },
-    ],
+    category: "Backend",
+    items: ["Node.js", "Express", "FastAPI", "REST APIs"],
   },
   {
-    title: "Frontend",
-    skills: [
-      { name: "React.js", level: 85 },
-      { name: "Next.js", level: 70 },
-      { name: "HTML/CSS", level: 90 },
-    ],
+    category: "Data & AI",
+    items: ["Pandas", "NumPy", "Scikit-learn", "Ollama / Local LLMs"],
   },
   {
-    title: "Databases",
-    skills: [
-      { name: "MySQL", level: 80 },
-      { name: "MongoDB", level: 75 },
-    ],
+    category: "Databases",
+    items: ["MongoDB", "MySQL", "PostgreSQL"],
   },
   {
-    title: "Tools & Technologies",
-    skills: [
-      { name: "Git/GitHub", level: 85 },
-      { name: "VS Code", level: 90 },
-      { name: "Jupyter Notebook", level: 80 },
-    ],
+    category: "Tools",
+    items: ["Git", "GitHub Actions", "VS Code", "Linux / Terminal"],
   },
 ];
 
 const Skills = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="skills" className="py-24 relative bg-secondary/30">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="stack" ref={ref} className="section-divider py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
         >
-          <span className="text-primary font-mono text-sm">What I work with</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">Technical Skills</h2>
-        </motion.div>
+          <h2 className="text-xs mono text-zinc-500 uppercase tracking-widest mb-8">Stack</h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="glass-card p-6 rounded-xl"
-            >
-              <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 bg-primary rounded-full" />
-                {category.title}
-              </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm text-foreground">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground font-mono">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                          ease: "easeOut",
-                        }}
-                        className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {stack.map((group, i) => (
+              <motion.div
+                key={group.category}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+              >
+                <p className="mono text-xs text-zinc-500 mb-3">{group.category}</p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span key={item} className="tag">{item}</span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,110 +1,60 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "snehajain161104@gmail.com",
-      href: "mailto:snehajain161104@gmail.com",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 9284598335",
-      href: "tel:+919284598335",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Pune, Maharashtra, India",
-      href: "#",
-    },
-  ];
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="contact" ref={ref} className="section-divider py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
         >
-          <span className="text-primary font-mono text-sm">Get in touch</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">Let's Connect</h2>
-          <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
-            I'm currently looking for new opportunities. Whether you have a question 
-            or just want to say hi, I'll try my best to get back to you!
+          <h2 className="text-xs mono text-zinc-500 uppercase tracking-widest mb-8">Contact</h2>
+
+          <p className="text-zinc-300 text-base mb-2 font-medium">Let's build something.</p>
+          <p className="text-zinc-500 text-sm mb-8 max-w-md leading-relaxed">
+            If you're working on something interesting — a product, a startup, or a hard problem —
+            I'd like to hear about it.
           </p>
-        </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {contactInfo.map((item, index) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-6 rounded-xl text-center hover:border-primary/50 transition-all group"
-              >
-                <div className="inline-flex p-3 bg-primary/10 rounded-lg mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="text-primary" size={24} />
-                </div>
-                <h3 className="font-semibold text-foreground mb-1">{item.label}</h3>
-                <p className="text-muted-foreground text-sm">{item.value}</p>
-              </motion.a>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
-          >
+          <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="mailto:snehajain161104@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-all glow-primary text-lg"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-zinc-100 text-zinc-900 rounded-md text-sm font-medium hover:bg-white transition-colors"
             >
-              <Send size={20} />
-              Say Hello
+              <Mail size={14} />
+              snehajain161104@gmail.com
             </a>
+          </div>
 
-            <div className="flex justify-center gap-4 mt-8">
-              <a
-                href="https://github.com/snehajain16"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sneha-jain-666830259/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="mailto:snehajain161104@gmail.com"
-                className="p-4 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-              >
-                <Mail size={24} />
-              </a>
-            </div>
-          </motion.div>
-        </div>
+          <div className="flex items-center gap-5 mt-8">
+            <a
+              href="https://github.com/snehajain16"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-100 transition-colors"
+            >
+              <Github size={14} />
+              GitHub
+              <ArrowUpRight size={11} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sneha-jain-666830259/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-100 transition-colors"
+            >
+              <Linkedin size={14} />
+              LinkedIn
+              <ArrowUpRight size={11} />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
