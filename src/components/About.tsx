@@ -1,128 +1,39 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, MapPin, Award } from "lucide-react";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const stats = [
-    { value: "9.08", label: "CGPA" },
-    { value: "2+", label: "Internships" },
-    { value: "6+", label: "Projects" },
-  ];
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-24 relative">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="about" ref={ref} className="section-divider py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="space-y-4 text-zinc-400 leading-relaxed text-[15px]"
         >
-          <span className="text-primary font-mono text-sm">Get to know me</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">About Me</h2>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Final-year Computer Science student with a strong focus on Python and 
-              backend development, currently building experience in AI/ML. Skilled in 
-              developing scalable applications, working with APIs, and creating 
-              automation tools.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              My experience spans full-stack web development using technologies like 
-              React.js, Next.js, FastAPI, and Node.js. I'm particularly interested in 
-              applying AI to build practical, efficient solutions and improve real-world systems.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Currently seeking Python/AI-ML internship or fresher backend roles 
-              where I can contribute to real-world projects and continue growing as a developer.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4"
-          >
-            <div className="glass-card p-6 rounded-xl">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <GraduationCap className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Education</h3>
-                  <p className="text-muted-foreground text-sm">
-                    B.Tech in Computer Science Engineering
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    Walchand Institute of Technology, Solapur
-                  </p>
-                  <p className="text-primary text-sm font-mono mt-1">2022 - 2026</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6 rounded-xl">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-accent/10 rounded-lg">
-                  <MapPin className="text-accent" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Location</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Pune, Maharashtra, India
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    Open to remote opportunities
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6 rounded-xl">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Award className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Certification</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Infosys Springboard – Introduction to Artificial Intelligence
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-3 gap-6 mt-16"
-        >
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center glass-card p-6 rounded-xl"
-            >
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                {stat.value}
-              </div>
-              <div className="text-muted-foreground text-sm">{stat.label}</div>
-            </div>
-          ))}
+          <h2 className="text-xs mono text-zinc-500 uppercase tracking-widest mb-8">About</h2>
+          <p>
+            I started writing code because I wanted to build things, not because I wanted a job.
+            That's still true. I'm drawn to problems where software can do something genuinely
+            useful — not just impressive.
+          </p>
+          <p>
+            My focus right now is on developer tooling and the kind of products where the user
+            experience is deeply tied to how well the underlying software is designed. I think
+            a lot about what makes a tool feel good to use versus merely functional.
+          </p>
+          <p>
+            I've shipped products that people actually use, worked across the full stack, and
+            done two internships where I learned what real codebases look like. I'm interested
+            in founding or joining an early-stage team where the problems are hard and the
+            speed of iteration matters.
+          </p>
+          <p>
+            Based in Pune. Open to remote.
+          </p>
         </motion.div>
       </div>
     </section>

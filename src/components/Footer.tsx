@@ -1,17 +1,9 @@
-import { Heart } from "lucide-react";
-
 const Footer = () => {
   return (
-    <footer className="py-8 border-t border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-sm">
-            © 2025 Sneha Jain. All rights reserved.
-          </p>
-          <p className="text-muted-foreground text-sm flex items-center gap-1">
-            Made with <Heart size={14} className="text-primary fill-primary" /> using React & Tailwind
-          </p>
-        </div>
+    <footer className="section-divider py-10">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <span className="mono text-xs text-zinc-600">© 2025 Sneha Jain</span>
+        <span className="mono text-xs text-zinc-700">Built with React · Deployed on Vercel</span>
       </div>
     </footer>
   );
